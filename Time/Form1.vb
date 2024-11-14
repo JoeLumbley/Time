@@ -32,24 +32,7 @@ Public Class Form1
     Private TimeFont As New Font("Segoe UI", 12, FontStyle.Regular)
     Private TimeFontSize As Single
     Private TimePosition As New Point(100, 0)
-    Private TimeZone As String
-
-    'Private Zone As String
-
-    Private TimeZoneCity As String
-
-
-
-
-
-
-
-
-
     Private ReadOnly AlineCenterMiddle As New StringFormat With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center}
-
-
-
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -68,37 +51,6 @@ Public Class Form1
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 
         DisplayText = Now.ToLocalTime.ToShortTimeString()
-
-        'Dim timeZone As TimeZoneInfo = TimeZoneInfo.Local
-
-        'If timeZone = TimeZoneInfo.Id Then
-
-
-        'End If
-
-        Select Case TimeZoneInfo.Local.Id
-            Case "Eastern Standard Time"
-                TimeZoneCity = "New York"
-            Case "Central Standard Time"
-                TimeZoneCity = "Chicago"
-            Case "Mountain Standard Time"
-                TimeZoneCity = "Denver"
-            Case "Pacific Standard Time"
-                TimeZoneCity = "Los Angeles"
-            Case Else
-                TimeZoneCity = "Unknown"
-        End Select
-
-
-
-
-
-
-
-        'DisplayText = Now.ToLocalTime.ToShortTimeString() & Environment.NewLine & TimeZoneCity ' Formats the current time to 12-hour format and time zone
-
-
-        'DisplayText = Now.ToLocalTime.ToString("HH:mm") ' Formats the current time to 24-hour format (military time)
 
         Refresh() ' Calls OnPaint Sub
 
@@ -149,19 +101,7 @@ Public Class Form1
 
             Try
 
-                'Using font As New Font("Segoe UI", TimeFontSize, FontStyle.Regular)
-
-                'Dim DisplayText As New String(Now.ToLocalTime.ToShortTimeString() & Environment.NewLine & Now.ToLocalTime.DayOfWeek.ToString())
-                'Dim DisplayText As New String(Now.ToLocalTime.ToShortTimeString())
-
-
                 With Buffer.Graphics
-
-                    '.CompositingMode = Drawing2D.CompositingMode.SourceCopy
-                    '.SmoothingMode = Drawing2D.SmoothingMode.None
-                    '.PixelOffsetMode = Drawing2D.PixelOffsetMode.None
-
-                    .Clear(Color.Black)
 
                     .CompositingMode = Drawing2D.CompositingMode.SourceOver
                     .TextRenderingHint = Drawing.Text.TextRenderingHint.AntiAlias
@@ -169,11 +109,11 @@ Public Class Form1
                     .PixelOffsetMode = Drawing2D.PixelOffsetMode.None
                     .CompositingQuality = Drawing2D.CompositingQuality.HighQuality
 
+                    .Clear(Color.Black)
+
                     .DrawString(DisplayText, TimeFont, Brushes.White, TimePosition, AlineCenterMiddle)
 
                 End With
-
-                'End Using
 
             Catch ex As Exception
 

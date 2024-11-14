@@ -29,9 +29,9 @@ Public Class Form1
     Private Context As BufferedGraphicsContext
     Private Buffer As BufferedGraphics
     Private DisplayText As String
-    Private TimeFont As New Font("Segoe UI", 12, FontStyle.Regular)
-    Private TimeFontSize As Single
-    Private TimePosition As New Point(100, 0)
+    Private DisplayFont As New Font("Segoe UI", 12, FontStyle.Regular)
+    Private DisplayFontSize As Single
+    Private DisplayPosition As New Point(100, 0)
     Private ReadOnly AlineCenterMiddle As New StringFormat With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center}
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -59,13 +59,13 @@ Public Class Form1
     Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles Me.Resize
 
         ' Set the font size for the time display based on the width of the client rectangle
-        TimeFontSize = ClientRectangle.Width \ 12
+        DisplayFontSize = ClientRectangle.Width \ 12
 
-        TimeFont = New Font("Segoe UI", TimeFontSize, FontStyle.Regular)
+        DisplayFont = New Font("Segoe UI", DisplayFontSize, FontStyle.Regular)
 
         ' Center the time display in the client rectangle.
-        TimePosition.X = ClientRectangle.Width \ 2
-        TimePosition.Y = ClientRectangle.Height \ 2
+        DisplayPosition.X = ClientRectangle.Width \ 2
+        DisplayPosition.Y = ClientRectangle.Height \ 2
 
         ' Dispose of the existing buffer
         If Buffer IsNot Nothing Then
@@ -111,7 +111,7 @@ Public Class Form1
 
                     .Clear(Color.Black)
 
-                    .DrawString(DisplayText, TimeFont, Brushes.White, TimePosition, AlineCenterMiddle)
+                    .DrawString(DisplayText, DisplayFont, Brushes.White, DisplayPosition, AlineCenterMiddle)
 
                 End With
 
@@ -128,7 +128,6 @@ Public Class Form1
         End If
 
     End Sub
-
 
     Private Sub InitializeForm()
 

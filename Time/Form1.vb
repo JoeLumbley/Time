@@ -40,7 +40,7 @@ Public Class Form1
     Private DisplayText As String
     Private DisplayFont As New Font("Segoe UI", 12, FontStyle.Regular)
     Private DisplayFontSize As Single
-    Private DisplayPosition As New Point(100, 0)
+    Private DisplayPosition As New Point(0, 0)
     Private ReadOnly AlineCenterMiddle As New StringFormat With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center}
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load

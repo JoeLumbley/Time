@@ -1,4 +1,4 @@
-# Time
+# Time🕒
 
 A simple Windows application that displays the current local time. 
 

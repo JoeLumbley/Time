@@ -30,8 +30,7 @@
 ' OUT OF Or IN CONNECTION WITH THE SOFTWARE Or THE USE Or OTHER DEALINGS IN THE
 ' SOFTWARE.
 
-' Monica is our an AI assistant.
-' https://monica.im/
+' https://github.com/JoeLumbley/Time
 
 Public Class Form1
 
@@ -167,3 +166,7 @@ Public Class Form1
     End Sub
 
 End Class
+
+
+' Monica is our an AI assistant.
+' https://monica.im/

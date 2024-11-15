@@ -58,7 +58,7 @@ Public Class Form1
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 
-        DisplayText = Now.ToLocalTime.ToShortTimeString()
+        DisplayText = Now.ToShortTimeString()
 
         Refresh() ' Calls OnPaint Sub
 
@@ -67,7 +67,7 @@ Public Class Form1
     Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles Me.Resize
 
         ' Set the font size for the time display based on the width of the client rectangle
-        DisplayFontSize = ClientRectangle.Width \ 12
+        DisplayFontSize = ClientRectangle.Width \ 14
 
         DisplayFont = New Font("Segoe UI", DisplayFontSize, FontStyle.Regular)
 

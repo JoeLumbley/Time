@@ -66,12 +66,12 @@ End Sub
 #### 4. **Timer Tick Event**
 ```vb
 Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-    DisplayText = Now.ToLocalTime.ToShortTimeString()
+    DisplayText = Now.ToShortTimeString()
     Refresh() ' Calls OnPaint Sub
 End Sub
 ```
 - This method runs every time the timer ticks.
-- **DisplayText**: Updates to the current local time.
+- **DisplayText**: Updates to the current time.
 - **Refresh()**: Triggers the form to redraw itself, calling the `OnPaint` method.
 
 #### 5. **Form Resize Event**

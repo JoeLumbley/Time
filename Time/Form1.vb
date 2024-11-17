@@ -60,31 +60,39 @@ Public Class Form1
 
         DisplayText = Now.ToShortTimeString()
 
-        Refresh() ' Calls OnPaint Sub
+        If Not WindowState = FormWindowState.Minimized Then
+
+            Refresh() ' Calls OnPaint Sub
+
+        End If
 
     End Sub
 
     Private Sub Form1_Resize(sender As Object, e As EventArgs) Handles Me.Resize
 
-        ' Set the font size for the time display based on the width of the client rectangle
-        DisplayFontSize = ClientRectangle.Width \ 14
+        If Not WindowState = FormWindowState.Minimized Then
 
-        DisplayFont = New Font("Segoe UI", DisplayFontSize, FontStyle.Regular)
+            ' Set the font size for the time display based on the width of the client rectangle
+            DisplayFontSize = ClientRectangle.Width \ 14
 
-        ' Center the time display in the client rectangle.
-        DisplayPosition.X = ClientRectangle.Width \ 2
-        DisplayPosition.Y = ClientRectangle.Height \ 2
+            DisplayFont = New Font("Segoe UI", DisplayFontSize, FontStyle.Regular)
 
-        ' Dispose of the existing buffer
-        If Buffer IsNot Nothing Then
+            ' Center the time display in the client rectangle.
+            DisplayPosition.X = ClientRectangle.Width \ 2
+            DisplayPosition.Y = ClientRectangle.Height \ 2
 
-            Buffer.Dispose()
+            ' Dispose of the existing buffer
+            If Buffer IsNot Nothing Then
 
-            Buffer = Nothing ' Set to Nothing to avoid using a disposed object
+                Buffer.Dispose()
+
+                Buffer = Nothing ' Set to Nothing to avoid using a disposed object
+
+            End If
+
+            ' The buffer will be reallocated in OnPaint
 
         End If
-
-        ' The buffer will be reallocated in OnPaint
 
     End Sub
 
